@@ -1,11 +1,12 @@
 # Document Stream Pipeline
 
 ## 01-workflow snapshot
-![alt text](<Screenshot 2024-04-14 080154.png>)
+![alt text](<assests-media/etl pipeline.png>)
 
 ## 02-Ecommerce data
 The E-commerce dataset used in this project is taken from the source: [ecommerce-data](https://www.kaggle.com/datasets/carrie1/ecommerce-data) and this dataset comes with the following attributes and the sample headshot is given here:
-![alt text](image.png)
+
+![alt text](assests-media/dataset.png)
 
 The above data has got some transformations regarding the data formats.
 
@@ -19,7 +20,8 @@ The above data has got some transformations regarding the data formats.
 docker build -t api-ingest .
 ```
 The sample shot of the posting values to the application is here:
-![alt text](<Screenshot 2024-04-10 071104.png>)
+
+![alt text](<assests-media/postman Testing.png>)
 
 ## 04-Kafka buffer
 * create two kafka topics for listening api-ingested data and the spark output topic for the spark data processing.you can create topic with following kafka snippet:
@@ -37,7 +39,8 @@ The sample shot of the posting values to the application is here:
 ./kafka-console-consumer.sh --topic spark-output --bootstrap-server localhost:9092
 ```
 The sample shot for the kafka listening to topic and producing the result console is here:
-![alt text](<kafka console.png>)
+
+![alt text](<assests-media\kafka console.png>)
 
 ## 05-Spark processing
 * create a spark context, session with the following:<br>
@@ -45,15 +48,19 @@ The sample shot for the kafka listening to topic and producing the result consol
     * Connect to the mongodb with the username and password.
 * Read the message from the kafka stream and note that we have to unpack the binaries of keys and values in kafka storage.
 * Create a temporary view of the kafka stream and process it by using a data frame and store it in the mongodb using the spark mongodb connector.
-![alt text](<Screenshot 2024-04-10 071145.png>)
+
+![alt text](<assests-media\batch 1.png>)
 * Above writing it into the mongodb is done with the batch wise processing of the data, batches may have vary number of records into the spark and storing it into the mongodb.
-![alt text](<Screenshot 2024-04-11 221411.png>)
+
+![alt text](<assests-media\batch n.png>)
 
 ## 06-MongoDB store
 * The processed data from the spark output context is gets stored into the mongodb using the **spark-mongodb connector**.
-![alt text](<Screenshot 2024-04-11 222823.png>)
+
+![alt text](<assests-media\mongo document.png>)
 * The all data in the MongoDB is stored with the **key-values** pair indexes, and snapshot of this documents is here:
-![alt text](<Screenshot 2024-04-11 222749.png>)
+
+![alt text](<assests-media\key value.png>)
 
 ## 07-Streamlit analysis
 * The all processed data is now stored into the mongodb store and using the pymongo connector and streamlit UI dashboards are built.
@@ -61,6 +68,6 @@ The sample shot for the kafka listening to topic and producing the result consol
     * Invoice No
     * Customer ID<br>
     Input:<br>
-    ![alt text](<Screenshot 2024-04-11 223137.png>)  
+    ![alt text](<assests-media\dashboard input.png>)  
     Dashboard:
-    ![alt text](<Screenshot 2024-04-11 223205.png>)
+    ![alt text](<assests-media\dashboard output.png>)
