@@ -40,7 +40,7 @@ The sample shot of the posting values to the application is here:
 ```
 The sample shot for the kafka listening to topic and producing the result console is here:
 
-![alt text](<assests-media\kafka console.png>)
+![alt text](<assests-media/kafka console.png>)
 
 ## 05-Spark processing
 * create a spark context, session with the following:<br>
@@ -49,18 +49,18 @@ The sample shot for the kafka listening to topic and producing the result consol
 * Read the message from the kafka stream and note that we have to unpack the binaries of keys and values in kafka storage.
 * Create a temporary view of the kafka stream and process it by using a data frame and store it in the mongodb using the spark mongodb connector.
 
-![alt text](<assests-media\batch 1.png>)
+![alt text](<assests-media/batch 1.png>)
 * Above writing it into the mongodb is done with the batch wise processing of the data, batches may have vary number of records into the spark and storing it into the mongodb.
 
-![alt text](<assests-media\batch n.png>)
+![alt text](<assests-media/batch n.png>)
 
 ## 06-MongoDB store
 * The processed data from the spark output context is gets stored into the mongodb using the **spark-mongodb connector**.
 
-![alt text](<assests-media\mongo document.png>)
+![alt text](<assests-media/mongo document.png>)
 * The all data in the MongoDB is stored with the **key-values** pair indexes, and snapshot of this documents is here:
 
-![alt text](<assests-media\key value.png>)
+![alt text](<assests-media/key value.png>)
 
 ## 07-Streamlit analysis
 * The all processed data is now stored into the mongodb store and using the pymongo connector and streamlit UI dashboards are built.
@@ -68,6 +68,6 @@ The sample shot for the kafka listening to topic and producing the result consol
     * Invoice No
     * Customer ID<br>
     Input:<br>
-    ![alt text](<assests-media\dashboard input.png>)  
-    Dashboard:
-    ![alt text](<assests-media\dashboard output.png>)
+    ![alt text](<assests-media/dashboard input.png>)  
+    Dashboard:<br>
+    ![alt text](<assests-media/dashboard output.png>)
