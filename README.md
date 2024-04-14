@@ -67,7 +67,11 @@ The sample shot for the kafka listening to topic and producing the result consol
 * The sample dashboard of some visuals are given here with attributes:
     * Invoice No
     * Customer ID<br>
-    Input:<br>
-    ![alt text](<assests-media/dashboard input.png>)  
-    Dashboard:<br>
-    ![alt text](<assests-media/dashboard output.png>)
+    <p align="center">
+       <p>Input:</p>
+       <img src="assests-media/dashboard input.png" alt="alt text" width="300" height="200">
+    </p><br>
+    <p align="center">
+       <p>Output:</p>
+       <img src="assests-media/dashboard output.png" alt="alt text" width="500">
+    </p>
